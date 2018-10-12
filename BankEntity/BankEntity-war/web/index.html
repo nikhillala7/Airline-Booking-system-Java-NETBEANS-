@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ABC Bank</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function fun(){
+                if(document.getElementById("idad").value=="add")
+                    document.getElementById("idamta").disabled = false;
+                else
+                    document.getElementById("idamta").disabled = true;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Add/Delete Account</h2><br>
+        <form action='BankServlet' method="post">
+            <select name="ad" onChange="fun()" id="idad">
+                <option value="add">Add</option>
+                <option value="del">Delete</option>
+            </select>
+            Acc No.: <input type="number" min="1" max="5" name="acca"/>
+            Initial Amount.: <input type="number" id="idamta" min="1" max="500000" name="amta"/><br><br>
+            <input type="submit" name="state" value="AddDel">
+        </form>
+        <br><hr>
+        <h2>Change Account No.</h2><br>
+        <form action='BankServlet' method="post">
+            Old Acc No.: <input type="number" min="1" max="5" name="oacc"/>
+            New Acc No.: <input type="number" min="1" max="5" name="nacc"/><br><br>
+            <input type="submit" name="state" value="Change">
+        </form>
+        <br><hr>
+        <h2>Deposit/Withdraw Money</h2><br>
+        <form action='BankServlet' method="post">
+            <select name="dw">
+                <option value="d">Deposit</option>
+                <option value="w">Withdraw</option>
+            </select>
+            Acc No.: <input type="number" min="1" max="5" name="accd"/>
+            Amount.: <input type="number" min="1" max="500000" name="amtd"/><br><br>
+            <input type="submit" name="state" value="DepWith">
+        </form>
+        <br><hr>
+        <h2>View Balance</h2>
+        <form action="BankServlet" method="post">
+            Acc No.: <input type="number" min="1" max="5" name="accvb"/><br><br>
+            <input type="submit" name="state" value="View Balance">
+        </form>
+        <br><hr>
+        <h2>View Transaction History</h2>
+        <form action="BankServlet" method="post">
+            Acc No.: <input type="number" min="1" max="5" name="acct"/><br><br>
+            <input type="submit" name="state" value="View History">
+        </form>
+    </body>
+</html>
